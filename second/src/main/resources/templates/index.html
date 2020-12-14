@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #eeeeee;
+            text-align: center;
+            padding-top: 10%;
+        }
+        #title{
+            font-size: 500%;
+            font-weight: bold;
+            color: #393e46;
+        }
+        #url{
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: larger;
+        }
+        input[type=submit]{
+            width: 50%;
+            height: 5%;
+            padding: 5px 15px;
+            background: #00adb5;
+            border: 0 none;
+            cursor: pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .result{
+            font-size: 300%;
+            font-weight: bold;
+            color: #222931;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="title">URL shortener</p>
+        <form action="/result" method="get">
+            <input type="text" id="url" name="url" th:value="${url}"/>
+            <input type="submit" value="shorten"/>
+        </form>
+        <p class="result" th:text="${msg}"></p>
+        <a class="result" th:href="@{${originUrl}}" th:text="${changedUrl}"></a>
+    </div>
+
+<!--    <div>-->
+<!--        <button onclick="window.location.href='/history'">History</button>-->
+<!--    </div>-->
+
+</body>
+</html>
